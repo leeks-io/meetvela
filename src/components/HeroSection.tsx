@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Terminal, FileText } from "lucide-react";
 import TerminalWindow from "./TerminalWindow";
-import velaCasual from "@/assets/vela-casual.jpg";
+import velaAvatar from "@/assets/vela-avatar.png";
 
 export default function HeroSection() {
   return (
@@ -45,7 +45,7 @@ export default function HeroSection() {
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.img
-              src={velaCasual}
+              src={velaAvatar}
               alt="Vela — Solana AI Agent"
               className="relative w-40 h-40 rounded-full object-cover object-top border-2 border-border shadow-2xl glow-combined"
               animate={{ y: [0, -8, 0] }}
