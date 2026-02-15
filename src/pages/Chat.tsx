@@ -442,7 +442,7 @@ export default function Chat() {
             <button
               onClick={() => send()}
               disabled={isLoading || !input.trim()}
-              className="text-muted-foreground hover:text-glow-green transition-colors disabled:opacity-30 pt-1.5"
+              className="text-muted-foreground hover:text-glow-green transition-colors disabled:opacity-30 self-end pb-1.5"
             >
               <Send className="w-4 h-4" />
             </button>
