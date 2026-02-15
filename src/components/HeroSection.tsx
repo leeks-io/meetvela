@@ -73,7 +73,7 @@ export default function HeroSection() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/chat"
-              className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-solana text-primary-foreground font-semibold text-sm transition-all shimmer hover:scale-105"
+              className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-sm transition-all hover:scale-105 shadow-lg text-white bg-gradient-solana shimmer"
             >
               <Terminal className="w-4 h-4" />
               Start Coding
