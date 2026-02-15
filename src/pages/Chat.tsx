@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Send, Loader2, Copy, Check, Home, Terminal, Download, FileText, FileDown } from "lucide-react";
+import { Send, Loader2, Copy, Check, Home, Terminal, Download, FileText, FileDown, RotateCcw } from "lucide-react";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -302,6 +302,16 @@ export default function Chat() {
           </span>
         </div>
         <div className="flex items-center gap-1 sm:gap-2">
+          {messages.length > 0 && (
+            <button
+              onClick={() => setMessages([])}
+              className="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+              title="Clear conversation"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Clear</span>
+            </button>
+          )}
           <ExportButton messages={messages} />
           <ThemeToggle />
           <span className="w-2 h-2 rounded-full bg-glow-green animate-pulse" />
