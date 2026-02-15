@@ -5,9 +5,9 @@ export default function Footer() {
     <footer className="relative border-t border-border">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-solana opacity-40" />
 
-      <div className="container mx-auto px-6 py-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex flex-col sm:flex-row items-center gap-3">
+      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-10">
+        <div className="flex flex-col items-center gap-4 sm:gap-6 md:flex-row md:justify-between">
+          <div className="flex flex-col items-center gap-2 sm:flex-row sm:gap-3 text-center sm:text-left">
             <span className="text-xl font-bold text-gradient-solana">VELA</span>
             <span className="text-xs text-muted-foreground">© 2026 Built for Solana</span>
             <span className="text-xs text-muted-foreground">·</span>
@@ -25,7 +25,7 @@ export default function Footer() {
             </span>
           </div>
 
-          <div className="flex items-center gap-6 text-sm text-muted-foreground">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-muted-foreground">
             <a
               href="https://github.com/solana-labs/solana"
               target="_blank"

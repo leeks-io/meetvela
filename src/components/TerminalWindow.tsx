@@ -62,7 +62,7 @@ export default function TerminalWindow() {
         </div>
 
         {/* Code area */}
-        <div className="p-5 font-mono text-sm leading-relaxed min-h-[280px]">
+        <div className="p-3 sm:p-5 font-mono text-[11px] sm:text-sm leading-relaxed min-h-[220px] sm:min-h-[280px] overflow-x-auto">
           {lines.slice(0, visibleLines).map((line, i) => (
             <motion.div
               key={i}

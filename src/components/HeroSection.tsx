@@ -6,7 +6,7 @@ import velaAvatar from "@/assets/vela-avatar.png";
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-24 sm:pt-32 pb-16 sm:pb-20 overflow-hidden">
+    <section className="relative pt-20 sm:pt-32 pb-12 sm:pb-20 overflow-hidden">
       {/* Grid overlay */}
       <div className="absolute inset-0 grid-overlay opacity-20" />
 
@@ -57,7 +57,7 @@ export default function HeroSection() {
             />
           </motion.div>
 
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tighter mb-4 sm:mb-6">
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-extrabold tracking-tighter mb-4 sm:mb-6">
             Meet <span className="text-gradient-solana italic">Vela</span>
           </h1>
 
@@ -74,7 +74,7 @@ export default function HeroSection() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-4 sm:px-0 mb-12">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-2 sm:px-0 mb-8 sm:mb-12">
             <Link
               to="/chat"
               className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-sm transition-all hover:scale-105 shadow-lg dark:bg-glow-green dark:text-background bg-foreground text-background"
@@ -96,7 +96,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="grid sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-12"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto mb-8 sm:mb-12 px-2 sm:px-0"
           >
             <Link
               to="/about"
