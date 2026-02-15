@@ -1,32 +1,48 @@
 import { motion } from "framer-motion";
-import { Code2, Shield, Anchor, Map, GitBranch } from "lucide-react";
+import { Code2, Search, Shield, Wrench, BookOpen, MessageSquare, Sparkles } from "lucide-react";
 
-const features = [
+const capabilities = [
   {
     icon: Code2,
-    title: "Rust-Native Generation",
-    description: "Generates idiomatic Rust code optimized for the Solana BPF runtime.",
+    title: "Code Generation",
+    description: "Write Rust programs for Solana — Anchor-based accounts, instructions, PDAs, and full program scaffolds with best practices.",
+  },
+  {
+    icon: Search,
+    title: "Code Interpretation",
+    description: "Break down Rust/Anchor code line by line. Explain macros, structs, enums, account layouts, and space calculations.",
   },
   {
     icon: Shield,
-    title: "Solana Program Support",
-    description: "Full support for native Solana programs, accounts, and instructions.",
+    title: "Debugging & Security",
+    description: "Detect vulnerabilities, suggest constraints and ownership checks, and highlight PDA mismanagement or realloc abuse.",
   },
   {
-    icon: Anchor,
-    title: "Anchor Compatible",
-    description: "Generates Anchor framework code with proper macros and validation.",
+    icon: Wrench,
+    title: "Optimization & Refactoring",
+    description: "Recommend space optimizations, rent efficiency improvements, and conversion to PDA-based Anchor best practices.",
   },
   {
-    icon: Map,
-    title: "Public Roadmap",
-    description: "Every feature, every milestone — planned and tracked in the open.",
+    icon: BookOpen,
+    title: "Learning & Documentation",
+    description: "Step-by-step Rust tutorials, Solana concepts like PDAs, CPI, token programs, and daily learning journal entries.",
   },
   {
-    icon: GitBranch,
-    title: "Open-Source Development",
-    description: "Vela's core engine and generated programs are fully open-source.",
+    icon: MessageSquare,
+    title: "Interactive Prompts",
+    description: "Ask in natural language — Vela generates Rust code with contextual explanations and suggests improvements.",
   },
+  {
+    icon: Sparkles,
+    title: "Experimental Features",
+    description: "Interpret advanced Rust logic, predict code execution outcomes, and simulate what-if scenarios for program design.",
+  },
+];
+
+const limitations = [
+  "She cannot deploy programs automatically to Solana devnet/mainnet.",
+  "She does not run Rust code in real time.",
+  "She does not replace human audit — review outputs before use.",
 ];
 
 export default function FeaturesSection() {
@@ -41,15 +57,15 @@ export default function FeaturesSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            Built for <span className="text-gradient-solana">Developers</span>
+            What <span className="text-gradient-solana">Vela</span> Can Do
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            Every feature designed for builders who ship on Solana.
+            A living Rust companion for Solana developers — she assists, interprets, educates, and evolves.
           </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {features.map((feature, i) => (
+          {capabilities.map((feature, i) => (
             <motion.div
               key={feature.title}
               initial={{ opacity: 0, y: 20 }}
@@ -66,6 +82,29 @@ export default function FeaturesSection() {
             </motion.div>
           ))}
         </div>
+
+        {/* Limitations */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-16 max-w-2xl mx-auto"
+        >
+          <div className="rounded-xl border border-border bg-card/40 p-6">
+            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">
+              Current Limitations
+            </h3>
+            <ul className="space-y-2">
+              {limitations.map((item, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-muted-foreground/40 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
