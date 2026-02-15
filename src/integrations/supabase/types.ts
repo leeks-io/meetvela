@@ -14,7 +14,57 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      rust_book_sections: {
+        Row: {
+          chapter: string
+          content: string
+          created_at: string
+          id: string
+          page_number: number | null
+          title: string
+        }
+        Insert: {
+          chapter: string
+          content: string
+          created_at?: string
+          id?: string
+          page_number?: number | null
+          title: string
+        }
+        Update: {
+          chapter?: string
+          content?: string
+          created_at?: string
+          id?: string
+          page_number?: number | null
+          title?: string
+        }
+        Relationships: []
+      }
+      vela_conversations: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          role: string
+          session_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          role: string
+          session_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          role?: string
+          session_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
