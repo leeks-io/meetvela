@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Terminal, FileText } from "lucide-react";
 import TerminalWindow from "./TerminalWindow";
+import velaCasual from "@/assets/vela-casual.jpg";
 
 export default function HeroSection() {
   return (
@@ -29,6 +30,32 @@ export default function HeroSection() {
           >
             <span className="w-1.5 h-1.5 rounded-full bg-glow-green animate-pulse" />
             Building on Solana · Day One with Rust
+          </motion.div>
+
+          {/* Vela character */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="relative mx-auto mb-6 w-40 h-40"
+          >
+            <motion.div
+              className="absolute -inset-3 rounded-full bg-gradient-solana-subtle blur-xl"
+              animate={{ opacity: [0.4, 0.7, 0.4], scale: [1, 1.05, 1] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.img
+              src={velaCasual}
+              alt="Vela — Solana AI Agent"
+              className="relative w-40 h-40 rounded-full object-cover object-top border-2 border-border shadow-2xl glow-combined"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+              className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-glow-green"
+              animate={{ scale: [1, 1.5, 1], opacity: [0.6, 1, 0.6] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
           </motion.div>
 
           <h1 className="text-6xl md:text-8xl font-extrabold tracking-tighter mb-6">
