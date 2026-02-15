@@ -14,11 +14,8 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="container mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-gradient-solana flex items-center justify-center text-sm font-bold text-primary-foreground">
-            V
-          </div>
-          <span className="font-bold tracking-wide">
+        <Link to="/" className="flex items-center">
+          <span className="text-xl font-bold tracking-wide">
             <span className="text-foreground">VEL</span>
             <span className="text-gradient-solana italic">A</span>
           </span>
