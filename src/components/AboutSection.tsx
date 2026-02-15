@@ -20,7 +20,7 @@ const limitations = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="relative py-28 overflow-hidden">
+    <section id="about" className="relative py-16 sm:py-28 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
@@ -30,7 +30,7 @@ export default function AboutSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
             About <span className="text-gradient-solana italic">Vela</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -39,7 +39,7 @@ export default function AboutSection() {
         </motion.div>
 
         {/* Vela + Leeks Cards */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-20">
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-2 max-w-4xl mx-auto mb-12 sm:mb-20">
           {/* Vela Card */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -128,7 +128,7 @@ export default function AboutSection() {
           <p className="text-sm text-muted-foreground">What Vela can do for you today.</p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 max-w-5xl mx-auto mb-10 sm:mb-12">
           {capabilities.map((cap, i) => (
             <motion.div
               key={cap.title}

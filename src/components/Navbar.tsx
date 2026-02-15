@@ -47,9 +47,9 @@ export default function Navbar() {
           <ThemeToggle />
           <Link
             to="/chat"
-            className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full border border-border bg-card hover:bg-muted text-sm font-medium text-foreground transition-colors"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full border border-border bg-card hover:bg-muted text-xs sm:text-sm font-medium text-foreground transition-colors"
           >
-            <Terminal className="w-4 h-4" />
+            <Terminal className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             <span className="hidden sm:inline">Launch Terminal</span>
           </Link>
           <button
