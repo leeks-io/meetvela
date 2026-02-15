@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Terminal, FileText } from "lucide-react";
+import { Terminal, FileText, ArrowRight } from "lucide-react";
 import TerminalWindow from "./TerminalWindow";
 import velaAvatar from "@/assets/vela-avatar.png";
 
 export default function HeroSection() {
   return (
-    <section id="origins" className="relative pt-24 sm:pt-32 pb-16 sm:pb-20 overflow-hidden">
+    <section className="relative pt-24 sm:pt-32 pb-16 sm:pb-20 overflow-hidden">
       {/* Grid overlay */}
       <div className="absolute inset-0 grid-overlay opacity-20" />
 
@@ -15,7 +15,6 @@ export default function HeroSection() {
       <div className="absolute bottom-1/4 right-1/4 w-48 sm:w-80 h-48 sm:h-80 bg-glow-green/8 rounded-full blur-3xl animate-float" style={{ animationDelay: "3s" }} />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        {/* Centered hero text */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -74,22 +73,53 @@ export default function HeroSection() {
             Generate Rust programs, debug Anchor code, learn Solana concepts step by step — all powered by official Rust & Solana documentation.
           </p>
 
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-4 sm:px-0">
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-4 sm:px-0 mb-12">
             <Link
               to="/chat"
-              className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-sm transition-all hover:scale-105 shadow-lg text-white bg-gradient-solana shimmer"
+              className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-sm transition-all hover:scale-105 shadow-lg dark:bg-glow-green dark:text-background bg-foreground text-background"
             >
               <Terminal className="w-4 h-4" />
               Start Coding
             </Link>
-            <a
-              href="#journal"
+            <Link
+              to="/docs"
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl border border-border bg-card/80 text-foreground font-medium text-sm transition-all hover:bg-muted"
             >
               <FileText className="w-4 h-4" />
               Read Documentation
-            </a>
+            </Link>
           </div>
+
+          {/* Navigation Cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="grid sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-12"
+          >
+            <Link
+              to="/about"
+              className="group flex items-center justify-between px-5 py-4 rounded-xl border border-border bg-card/60 hover:bg-card hover:border-glow-purple/40 transition-all hover:-translate-y-1"
+            >
+              <span className="text-sm font-medium text-foreground">About Vela</span>
+              <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-glow-purple transition-colors" />
+            </Link>
+            <Link
+              to="/docs"
+              className="group flex items-center justify-between px-5 py-4 rounded-xl border border-border bg-card/60 hover:bg-card hover:border-glow-green/40 transition-all hover:-translate-y-1"
+            >
+              <span className="text-sm font-medium text-foreground">Documentation</span>
+              <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-glow-green transition-colors" />
+            </Link>
+            <Link
+              to="/integrations"
+              className="group flex items-center justify-between px-5 py-4 rounded-xl border border-border bg-card/60 hover:bg-card hover:border-glow-purple/40 transition-all hover:-translate-y-1"
+            >
+              <span className="text-sm font-medium text-foreground">Integrations</span>
+              <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-glow-purple transition-colors" />
+            </Link>
+          </motion.div>
         </motion.div>
 
         {/* Terminal */}

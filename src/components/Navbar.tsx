@@ -1,17 +1,18 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Terminal, Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
-  { label: "Origins", href: "#origins" },
-  { label: "About", href: "#about" },
-  { label: "Documentation", href: "#journal" },
-  { label: "Integrations", href: "#integrations" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Documentation", href: "/docs" },
+  { label: "Integrations", href: "/integrations" },
 ];
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
@@ -27,13 +28,17 @@ export default function Navbar() {
         {/* Desktop nav links */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
-              href={link.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              to={link.href}
+              className={`text-sm transition-colors ${
+                location.pathname === link.href
+                  ? "text-foreground font-medium"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -47,7 +52,6 @@ export default function Navbar() {
             <Terminal className="w-4 h-4" />
             <span className="hidden sm:inline">Launch Terminal</span>
           </Link>
-          {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -62,14 +66,18 @@ export default function Navbar() {
         <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-xl">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
+                to={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-lg hover:bg-muted/50"
+                className={`text-sm py-2 px-3 rounded-lg transition-colors ${
+                  location.pathname === link.href
+                    ? "text-foreground bg-muted/50 font-medium"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                }`}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
