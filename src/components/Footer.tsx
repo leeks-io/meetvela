@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <span className="text-xl font-bold text-gradient-solana">VELA</span>
-            <span className="text-xs text-muted-foreground">© 2024 Built for Solana</span>
+            <span className="text-xs text-muted-foreground">© 2026 Built for Solana</span>
           </div>
 
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
