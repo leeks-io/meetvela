@@ -167,13 +167,28 @@ export default function VelaChat() {
         }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 1, type: "spring", stiffness: 200 }}
       >
         {isOpen ? (
-          <X className="w-6 h-6 text-background" />
+          <X className="w-5 h-5 sm:w-6 sm:h-6 text-background" />
         ) : (
-          <MessageSquare className="w-6 h-6 text-background" />
+          <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 text-background" />
         )}
       </motion.button>
+
+      {/* Label tooltip on first visit */}
+      {!isOpen && (
+        <motion.div
+          initial={{ opacity: 0, x: 10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1.5 }}
+          className="fixed bottom-5 right-[4.5rem] sm:bottom-7 sm:right-[5.5rem] z-50 px-3 py-1.5 rounded-lg bg-card border border-border shadow-lg text-xs text-foreground whitespace-nowrap"
+        >
+          Hey dev 👋 Need help?
+        </motion.div>
+      )}
 
       {/* Chat panel */}
       <AnimatePresence>
@@ -218,10 +233,10 @@ export default function VelaChat() {
                     <Bot className="w-6 h-6 text-glow-purple" />
                   </div>
                   <p className="text-sm text-muted-foreground mb-1">
-                    Hey, I'm <span className="text-gradient-solana font-semibold">Vela</span>
+                    Hey dev 👋 I'm <span className="text-gradient-solana font-semibold">Vela</span>
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    Ask me anything about Rust or Solana development
+                    Ask me anything about Rust or Solana — I'm here to help you build.
                   </p>
                 </div>
               )}
