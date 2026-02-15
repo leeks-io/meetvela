@@ -3,6 +3,7 @@ import JournalSection from "@/components/JournalSection";
 import ArchitectureSection from "@/components/ArchitectureSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import Footer from "@/components/Footer";
+import VelaChat from "@/components/VelaChat";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <ArchitectureSection />
       <FeaturesSection />
       <Footer />
+      <VelaChat />
     </div>
   );
 };

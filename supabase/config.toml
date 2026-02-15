@@ -1,1 +1,4 @@
 project_id = "zcbjiqwckzgairsksjmu"
+
+[functions.vela-chat]
+verify_jwt = false
