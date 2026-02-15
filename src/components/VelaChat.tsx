@@ -221,7 +221,7 @@ export default function VelaChat() {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div className="flex-1 overflow-y-auto overflow-x-hidden p-4 space-y-4 min-w-0">
               {messages.length === 0 && (
                 <div className="text-center py-6">
                   <div
@@ -261,19 +261,15 @@ export default function VelaChat() {
               {messages.map((msg, i) => (
                 <div
                   key={i}
-                  className={`flex gap-2.5 ${msg.role === "user" ? "flex-row-reverse" : ""}`}
+                  className={`flex gap-2.5 min-w-0 ${msg.role === "user" ? "flex-row-reverse" : ""}`}
                 >
                   <div
                     className={`w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center ${
-                      msg.role === "user"
-                        ? "bg-secondary"
-                        : ""
+                      msg.role === "user" ? "bg-secondary" : ""
                     }`}
                     style={
                       msg.role === "assistant"
-                        ? {
-                            background: "linear-gradient(135deg, hsl(271 91% 65%), hsl(160 100% 52%))",
-                          }
+                        ? { background: "linear-gradient(135deg, hsl(271 91% 65%), hsl(160 100% 52%))" }
                         : undefined
                     }
                   >
@@ -284,18 +280,18 @@ export default function VelaChat() {
                     )}
                   </div>
                   <div
-                    className={`max-w-[80%] rounded-xl px-3 py-2 text-sm leading-relaxed ${
+                    className={`max-w-[80%] min-w-0 rounded-xl px-3 py-2 text-sm leading-relaxed overflow-hidden ${
                       msg.role === "user"
-                        ? "bg-secondary text-secondary-foreground"
+                        ? "bg-secondary text-secondary-foreground break-words"
                         : "bg-muted/50 text-foreground"
                     }`}
                   >
                     {msg.role === "assistant" ? (
-                      <div className="prose prose-sm dark:prose-invert max-w-none [&_pre]:bg-muted [&_pre]:rounded-lg [&_pre]:p-3 [&_pre]:text-xs [&_code]:text-glow-green [&_code]:text-xs [&_p]:mb-2 [&_p:last-child]:mb-0">
+                      <div className="prose prose-sm dark:prose-invert max-w-none break-words overflow-hidden [&_pre]:bg-muted [&_pre]:rounded-lg [&_pre]:p-2 [&_pre]:text-[11px] [&_pre]:overflow-x-auto [&_pre]:max-w-full [&_code]:text-glow-green [&_code]:text-[11px] [&_code]:break-all [&_p]:mb-2 [&_p]:break-words [&_p:last-child]:mb-0">
                         <ReactMarkdown>{msg.content}</ReactMarkdown>
                       </div>
                     ) : (
-                      msg.content
+                      <span className="break-words">{msg.content}</span>
                     )}
                   </div>
                 </div>
