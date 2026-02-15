@@ -4,6 +4,7 @@ import JournalSection from "@/components/JournalSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import IntegrationsSection from "@/components/IntegrationsSection";
 import VelaChat from "@/components/VelaChat";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -13,6 +14,7 @@ const Index = () => {
       <JournalSection />
       <FeaturesSection />
       <IntegrationsSection />
+      <Footer />
       <VelaChat />
     </div>
   );
