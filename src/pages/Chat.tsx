@@ -210,7 +210,7 @@ export default function Chat() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -227,6 +227,7 @@ export default function Chat() {
     const userMsg: Message = { role: "user", content };
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
+    if (inputRef.current) inputRef.current.style.height = "auto";
     setIsLoading(true);
 
     let assistantSoFar = "";
@@ -413,24 +414,35 @@ export default function Chat() {
       {/* Terminal input */}
       <div className="border-t border-border bg-muted/20">
         <div className="max-w-4xl mx-auto px-3 sm:px-4 md:px-6 py-3">
-          <div className="flex items-center gap-2">
-            <span className="text-glow-green text-xs sm:text-sm shrink-0 select-none">
+          <div className="flex items-start gap-2">
+            <span className="text-glow-green text-xs sm:text-sm shrink-0 select-none pt-1.5">
               <span className="hidden sm:inline">vela@solana:~$</span>
               <span className="sm:hidden">$</span>
             </span>
-            <input
+            <textarea
               ref={inputRef}
               value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && send()}
+              onChange={(e) => {
+                setInput(e.target.value);
+                // Auto-resize
+                e.target.style.height = "auto";
+                e.target.style.height = e.target.scrollHeight + "px";
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                  e.preventDefault();
+                  send();
+                }
+              }}
               placeholder="ask Vela any Rust or Solana question..."
-              className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none caret-glow-green"
+              className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none caret-glow-green resize-none overflow-hidden min-h-[36px] py-1.5 leading-relaxed"
               disabled={isLoading}
+              rows={1}
             />
             <button
               onClick={() => send()}
               disabled={isLoading || !input.trim()}
-              className="text-muted-foreground hover:text-glow-green transition-colors disabled:opacity-30"
+              className="text-muted-foreground hover:text-glow-green transition-colors disabled:opacity-30 pt-1.5"
             >
               <Send className="w-4 h-4" />
             </button>
