@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, Bot, Loader2, ArrowLeft, Copy, Check } from "lucide-react";
+import { Send, Loader2, Copy, Check, Home, Terminal } from "lucide-react";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -186,15 +186,34 @@ export default function Chat() {
   return (
     <div className="h-screen flex flex-col bg-background font-mono">
       {/* Terminal title bar */}
-      <header className="flex items-center gap-2 px-4 py-2.5 border-b border-border bg-muted/30">
+      <header className="flex items-center gap-3 px-4 py-2.5 border-b border-border bg-muted/30">
         <div className="flex items-center gap-1.5">
-          <Link to="/" className="w-3 h-3 rounded-full bg-destructive/60 hover:bg-destructive transition-colors" title="Back" />
+          <div className="w-3 h-3 rounded-full bg-destructive/60" />
           <div className="w-3 h-3 rounded-full bg-amber-500/60" />
           <div className="w-3 h-3 rounded-full bg-glow-green/60" />
         </div>
+
+        {/* Navigation */}
+        <nav className="flex items-center gap-1 ml-2">
+          <Link
+            to="/"
+            className="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+          >
+            <Home className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Home</span>
+          </Link>
+          <Link
+            to="/chat"
+            className="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs text-foreground bg-muted/50"
+          >
+            <Terminal className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Terminal</span>
+          </Link>
+        </nav>
+
         <div className="flex-1 text-center">
-          <span className="text-xs text-muted-foreground">
-            vela@solana:~/workspace — rust-dev
+          <span className="text-xs text-muted-foreground hidden md:inline">
+            vela@solana:~/workspace
           </span>
         </div>
         <div className="flex items-center gap-2">
