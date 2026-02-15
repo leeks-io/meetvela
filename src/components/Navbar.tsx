@@ -18,7 +18,10 @@ export default function Navbar() {
           <div className="w-8 h-8 rounded-lg bg-gradient-solana flex items-center justify-center text-sm font-bold text-primary-foreground">
             V
           </div>
-          <span className="font-bold text-foreground tracking-wide">VELA.AI</span>
+          <span className="font-bold tracking-wide">
+            <span className="text-foreground">VEL</span>
+            <span className="text-gradient-solana italic">A</span>
+          </span>
         </Link>
 
         {/* Nav links */}
