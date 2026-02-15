@@ -309,8 +309,8 @@ export default function Chat() {
       </header>
 
       {/* Terminal output area */}
-      <div className="flex-1 overflow-y-auto bg-background">
-        <div className="max-w-4xl mx-auto px-3 sm:px-4 md:px-6 py-4">
+      <div className="flex-1 overflow-y-auto overflow-x-hidden bg-background">
+        <div className="max-w-4xl mx-auto px-3 sm:px-4 md:px-6 py-4 min-w-0">
           {isEmpty ? (
             <motion.div
               initial={{ opacity: 0 }}
@@ -360,25 +360,27 @@ export default function Chat() {
               </div>
             </motion.div>
           ) : (
-            <div className="space-y-3 text-sm">
+            <div className="space-y-3 text-sm min-w-0">
               {messages.map((msg, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.15 }}
+                  className="min-w-0"
                 >
                   {msg.role === "user" ? (
-                    <div className="flex items-start gap-2">
+                    <div className="flex items-start gap-2 min-w-0">
                       <span className="text-glow-green shrink-0 select-none">❯</span>
-                      <span className="text-foreground break-words">{msg.content}</span>
+                      <span className="text-foreground break-words min-w-0 overflow-hidden">{msg.content}</span>
                     </div>
                   ) : (
-                    <div className="group relative pl-3 sm:pl-4 border-l-2 border-glow-purple/30 ml-1 mt-1 mb-2">
-                      <div className="absolute top-0 right-0 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="pl-3 sm:pl-4 border-l-2 border-glow-purple/30 ml-1 mt-1 mb-2 min-w-0 overflow-hidden">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-[10px] text-glow-purple font-semibold uppercase tracking-wider">vela</span>
                         <CopyButton text={msg.content} />
                       </div>
-                      <div className="prose prose-sm dark:prose-invert max-w-none text-foreground/90 [&_pre]:bg-muted [&_pre]:rounded-lg [&_pre]:p-3 [&_pre]:text-xs [&_pre]:relative [&_code]:text-glow-green [&_code]:text-xs [&_p]:mb-2 [&_p:last-child]:mb-0 [&_h1]:text-base [&_h2]:text-sm [&_h3]:text-sm [&_li]:text-xs break-words">
+                      <div className="prose prose-sm dark:prose-invert max-w-none text-foreground/90 break-words overflow-hidden [&_pre]:bg-muted [&_pre]:rounded-lg [&_pre]:p-3 [&_pre]:text-xs [&_pre]:overflow-x-auto [&_pre]:max-w-full [&_code]:text-glow-green [&_code]:text-xs [&_code]:break-all [&_p]:mb-2 [&_p]:break-words [&_p:last-child]:mb-0 [&_h1]:text-base [&_h2]:text-sm [&_h3]:text-sm [&_li]:text-xs [&_li]:break-words [&_table]:text-xs [&_table]:w-full [&_table]:overflow-x-auto">
                         <ReactMarkdown>{msg.content}</ReactMarkdown>
                       </div>
                     </div>
