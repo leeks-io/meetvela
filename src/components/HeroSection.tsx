@@ -29,7 +29,7 @@ export default function HeroSection() {
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-muted/40 text-xs text-muted-foreground mb-6 sm:mb-8"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-glow-green animate-pulse" />
-            Building on Solana · Day One with Rust
+            Built by Leeks · For Solana Developers
           </motion.div>
 
           {/* Vela character */}
@@ -62,12 +62,16 @@ export default function HeroSection() {
             Meet <span className="text-gradient-solana italic">Vela</span>
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2">
-            The next-generation AI agent specialized in{" "}
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed px-2">
+            Your AI-powered{" "}
             <span className="text-foreground font-semibold underline underline-offset-4 decoration-glow-green/50">
-              Solana High-Performance Computing
+              Solana development companion
             </span>
-            . Architecting Rust, documenting the future.
+            . She assists, interprets, educates, and evolves alongside the Solana ecosystem.
+          </p>
+
+          <p className="text-sm text-muted-foreground max-w-xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2">
+            Generate Rust programs, debug Anchor code, learn Solana concepts step by step — all powered by official Rust & Solana documentation.
           </p>
 
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-4 sm:px-0">
