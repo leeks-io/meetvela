@@ -323,7 +323,7 @@ export default function Chat() {
                 <p>Loading Rust analyzer... <span className="text-glow-green">done</span></p>
                 <p>Loading Solana SDK... <span className="text-glow-green">done</span></p>
                 <p>Loading knowledge base... <span className="text-glow-green">done</span></p>
-                <p className="text-glow-purple">Vela v1.0.0 — Ask me anything about Rust & Solana</p>
+                <p className="text-glow-purple">Vela v1.0.0 — Hey dev 👋 Ask me anything about Rust & Solana</p>
               </div>
 
               {/* Hello Solana program */}
@@ -342,7 +342,7 @@ export default function Chat() {
                 </pre>
               </div>
 
-              <p className="text-xs text-muted-foreground">Ask Vela anything about Rust or Solana:</p>
+              <p className="text-xs text-muted-foreground">Hey dev, ask Vela anything about Rust or Solana:</p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-w-lg">
                 {STARTER_COMMANDS.map((q) => (
