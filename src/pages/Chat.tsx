@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Send, Bot, User, Loader2, ArrowLeft, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
+import ThemeToggle from "@/components/ThemeToggle";
+import velaFormal from "@/assets/vela-formal.jpg";
 
 type Message = { role: "user" | "assistant"; content: string };
 
@@ -186,7 +188,8 @@ export default function Chat() {
             <p className="text-xs text-muted-foreground">Rust & Solana AI Assistant</p>
           </div>
         </div>
-        <div className="ml-auto flex items-center gap-1.5">
+        <div className="ml-auto flex items-center gap-2">
+          <ThemeToggle />
           <span className="w-2 h-2 rounded-full bg-glow-green animate-pulse" />
           <span className="text-xs text-muted-foreground">Online</span>
         </div>
@@ -199,11 +202,15 @@ export default function Chat() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="flex flex-col items-center justify-center pt-[15vh]"
+              className="flex flex-col items-center justify-center pt-[10vh]"
             >
-              <div className="w-16 h-16 rounded-full flex items-center justify-center bg-gradient-solana-subtle animate-pulse-glow mb-6">
-                <Sparkles className="w-8 h-8 text-glow-purple" />
-              </div>
+              <motion.img
+                src={velaFormal}
+                alt="Vela"
+                className="w-48 rounded-2xl shadow-xl glow-combined mb-6"
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
               <h2 className="text-2xl font-bold text-foreground mb-2">Chat with Vela</h2>
               <p className="text-muted-foreground text-sm mb-8 text-center max-w-md">
                 Your AI assistant for Rust programming and Solana blockchain development. Ask anything.
@@ -252,7 +259,7 @@ export default function Chat() {
                     }`}
                   >
                     {msg.role === "assistant" ? (
-                      <div className="prose prose-sm prose-invert max-w-none [&_pre]:bg-background [&_pre]:rounded-lg [&_pre]:p-3 [&_pre]:text-xs [&_code]:text-glow-green [&_code]:text-xs [&_p]:mb-2 [&_p:last-child]:mb-0">
+                      <div className="prose prose-sm dark:prose-invert max-w-none [&_pre]:bg-muted [&_pre]:rounded-lg [&_pre]:p-3 [&_pre]:text-xs [&_code]:text-glow-green [&_code]:text-xs [&_p]:mb-2 [&_p:last-child]:mb-0">
                         <ReactMarkdown>{msg.content}</ReactMarkdown>
                       </div>
                     ) : (

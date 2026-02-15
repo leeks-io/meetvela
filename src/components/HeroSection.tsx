@@ -1,10 +1,17 @@
 import { motion } from "framer-motion";
-import TerminalWindow from "./TerminalWindow";
 import { ArrowRight, Github, BookOpen } from "lucide-react";
+import { Link } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
+import velaCasual from "@/assets/vela-casual.jpg";
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Theme toggle */}
+      <div className="absolute top-6 right-6 z-20">
+        <ThemeToggle />
+      </div>
+
       {/* Grid overlay */}
       <div className="absolute inset-0 grid-overlay opacity-30" />
 
@@ -44,14 +51,13 @@ export default function HeroSection() {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <a
-                href="#demo"
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm transition-all shimmer"
-                style={{ background: "linear-gradient(135deg, hsl(271 91% 65%), hsl(160 100% 52%))", color: "hsl(220 20% 5%)" }}
+              <Link
+                to="/chat"
+                className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-solana text-accent-foreground font-semibold text-sm transition-all shimmer"
               >
-                Try Vela
+                Chat with Vela
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </a>
+              </Link>
               <a
                 href="#github"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border bg-card/50 text-foreground font-medium text-sm transition-all hover:border-glow-purple/50 hover:bg-muted/60"
@@ -69,10 +75,40 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
-          {/* Right: Terminal */}
-          <div className="flex justify-center lg:justify-end">
-            <TerminalWindow />
-          </div>
+          {/* Right: Vela Character */}
+          <motion.div
+            className="flex justify-center lg:justify-end"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <div className="relative">
+              {/* Glow ring behind character */}
+              <motion.div
+                className="absolute -inset-4 rounded-3xl bg-gradient-solana-subtle blur-2xl"
+                animate={{ opacity: [0.4, 0.7, 0.4], scale: [1, 1.03, 1] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <motion.img
+                src={velaCasual}
+                alt="Vela — Autonomous Solana AI Agent"
+                className="relative rounded-2xl shadow-2xl glow-combined max-w-md w-full object-cover"
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              />
+              {/* Sparkle dots */}
+              <motion.div
+                className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-glow-green"
+                animate={{ scale: [1, 1.5, 1], opacity: [0.6, 1, 0.6] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+              <motion.div
+                className="absolute bottom-4 -left-3 w-3 h-3 rounded-full bg-glow-purple"
+                animate={{ scale: [1, 1.4, 1], opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 2.5, repeat: Infinity, delay: 0.8 }}
+              />
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

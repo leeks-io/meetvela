@@ -259,7 +259,7 @@ export default function VelaChat() {
                     }`}
                   >
                     {msg.role === "assistant" ? (
-                      <div className="prose prose-sm prose-invert max-w-none [&_pre]:bg-background [&_pre]:rounded-lg [&_pre]:p-3 [&_pre]:text-xs [&_code]:text-glow-green [&_code]:text-xs [&_p]:mb-2 [&_p:last-child]:mb-0">
+                      <div className="prose prose-sm dark:prose-invert max-w-none [&_pre]:bg-muted [&_pre]:rounded-lg [&_pre]:p-3 [&_pre]:text-xs [&_code]:text-glow-green [&_code]:text-xs [&_p]:mb-2 [&_p:last-child]:mb-0">
                         <ReactMarkdown>{msg.content}</ReactMarkdown>
                       </div>
                     ) : (
