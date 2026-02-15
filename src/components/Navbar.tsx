@@ -5,7 +5,7 @@ import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "Origins", href: "#origins" },
-  { label: "Rust Engine", href: "#engine" },
+  { label: "About", href: "#about" },
   { label: "Documentation", href: "#journal" },
   { label: "Integrations", href: "#integrations" },
 ];
