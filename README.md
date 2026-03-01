@@ -1,73 +1,118 @@
-# Welcome to your Lovable project
+VELA — Autonomous Anchor Safety & Audit Agent
 
-## Project info
+Live  / Frontend: [https://meetvela.vercel.app](https://meetvela.vercel.app)
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+VELA is a Rust-powered autonomous agent that helps Solana developers securely build Anchor programs. It scans programs for common vulnerabilities, provides actionable feedback, and prevents costly exploits before deployment.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+Prototype Overview
 
-**Use Lovable**
+The first version of VELA was **built with Lovable.dev**, leveraging AI-assisted development and on-chain integration. It combines knowledge from:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Official Solana SDK — to interact with Solana programs natively
+Anchor Framework — for program structure and account validation
+Rust Documentation — ensuring type-safe, high-performance code
+GPT-4o / Claude — for AI-driven code reasoning and logic guidance
 
-Changes made via Lovable will be committed automatically to this repo.
+This combination allows VELA to provide accurate, intelligent security guidance** to developers while remaining fully decentralized and open-source.
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Technical Architecture
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Backend: Rust-native autonomous agent performing static analysis and vulnerability detection on Anchor programs
+Frontend: React + TypeScript, Vite, Tailwind CSS, and shadcn-ui for fast, accessible UI
+Integration: CLI tool (`vela-check`) for local audits and CI/CD pipelines
+Deployment: Frontend hosted at Vercel, Rust agent open-sourced for transparency
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Building and Running VELA
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Prerequisites
 
-# Step 3: Install the necessary dependencies.
-npm i
+Install Rust and Cargo:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+$ curl https://sh.rustup.rs -sSf | sh
+$ source $HOME/.cargo/env
+$ rustup component add rustfmt
+$ rustup update
 ```
 
-**Edit a file directly in GitHub**
+For Ubuntu:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+$ sudo apt-get update
+$ sudo apt-get install libssl-dev libudev-dev pkg-config zlib1g-dev llvm clang cmake make libprotobuf-dev protobuf-compiler
+```
 
-**Use GitHub Codespaces**
+Clone the repository:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+$ git clone <YOUR_GIT_URL>
+$ cd vela
+```
 
-## What technologies are used for this project?
+Build the Rust agent:
 
-This project is built with:
+```bash
+$ cargo build --release
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
+Running Tests
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+```bash
+$ cargo test
+```
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+Using the CLI
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```bash
+$ cargo run -- vela-check <ANCHOR_PROJECT_PATH>
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+
+Frontend Setup
+
+```bash
+$ nvm install --lts
+$ nvm use --lts
+$ npm install
+$ npm run dev
+```
+
+Visit [http://localhost:5173](http://localhost:5173) to interact with VELA.
+
+---
+
+Deployment & Custom Domains
+
+VELA frontend can be deployed via Vercel or Lovable:
+
+Lovable:** [Connect & Publish](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID)
+Custom Domains:** Settings → Domains → Connect Domain
+
+---
+
+Open Source Philosophy
+
+VELA is fully open source, designed for transparency, community adoption, and collaboration across the Solana ecosystem. Pull requests, issues, and discussions are welcome.
+
+
+Roadmap
+
+1. Protocol Analysis Engine — Parse Anchor IDLs and build security graphs
+2. Vulnerability Detection — Implement core safety rules for critical vulnerabilities
+3. CLI Tooling — Enable local audits and CI/CD integration
+4. Ecosystem Launch — Open-source repository, documentation, and community engagement
+
+Disclaimer
+
+VELA is an educational and developer productivity tool. Users remain responsible for deploying secure smart contracts.
