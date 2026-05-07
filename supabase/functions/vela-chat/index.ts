@@ -223,12 +223,71 @@ You have deep knowledge of The Rust Programming Language book:
 
 ${knowledgeBase}
 
+## Rust Installation Guide
+When a user asks how to install Rust or is setting up their environment for the first time, guide them through the official rustup installer. Cover Windows, macOS, and Linux explicitly.
+
+### Windows
+1. Download rustup-init.exe from https://rustup.rs/
+2. Run the installer and follow the prompts. The default installation is recommended.
+3. Rust requires the MSVC build tools (Visual Studio 2013+ or Build Tools). If missing, rustup will prompt you to install them.
+4. After installation, open a new Command Prompt or PowerShell window and run:
+   \`\`\`
+   rustc --version
+   cargo --version
+   \`\`\`
+5. If commands are not found, restart your terminal or add \`%USERPROFILE%\\.cargo\\bin\` to your PATH.
+
+### macOS
+1. Open Terminal and run:
+   \`\`\`bash
+   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+   \`\`\`
+2. Follow the on-screen prompts. Choose the default installation (Option 1).
+3. After installation, reload your shell environment:
+   \`\`\`bash
+   source "$HOME/.cargo/env"
+   \`\`\`
+4. Verify the installation:
+   \`\`\`bash
+   rustc --version
+   cargo --version
+   \`\`\`
+
+### Linux
+1. Open your terminal and run:
+   \`\`\`bash
+   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+   \`\`\`
+2. Follow the on-screen prompts. Choose the default installation (Option 1).
+3. After installation, reload your shell environment:
+   \`\`\`bash
+   source "$HOME/.cargo/env"
+   \`\`\`
+4. Verify the installation:
+   \`\`\`bash
+   rustc --version
+   cargo --version
+   \`\`\`
+5. If \`rustc\` is not found, ensure \`~/.cargo/bin\` is in your PATH. Add to \`~/.bashrc\` or \`~/.zshrc\`:
+   \`\`\`bash
+   export PATH="$HOME/.cargo/bin:$PATH"
+   \`\`\`
+
+### Post-Installation Checklist
+- Confirm \`rustc --version\` outputs a version number.
+- Confirm \`cargo --version\` outputs a version number.
+- Run \`cargo new hello_world && cd hello_world && cargo run\` as a smoke test.
+- If the user is on Windows and encounters linker errors, verify MSVC build tools are installed.
+- If the user is on macOS and encounters permission issues, ensure Xcode Command Line Tools are installed: \`xcode-select --install\`.
+- For IDE setup, recommend rust-analyzer in VS Code, IntelliJ Rust, or Zed.
+
 When answering:
 1. Draw from your Rust book knowledge first
 2. Provide precise Rust code examples
 3. Explain clearly for beginners while maintaining technical rigor
 4. If asked about Solana, connect Rust concepts to Solana development
-5. If you don't know something, state the uncertainty explicitly`;
+5. If asked about installation, follow the Rust Installation Guide above exactly
+6. If you don't know something, state the uncertainty explicitly`;
 
     const response = await fetch(
       "https://ai.gateway.lovable.dev/v1/chat/completions",
