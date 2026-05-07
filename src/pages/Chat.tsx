@@ -34,6 +34,10 @@ const STARTER_COMMANDS = [
   { label: "what are traits?", icon: "⚙️" },
   { label: "write a Solana token program", icon: "🪙" },
   { label: "explain Solana PDAs", icon: "🔑" },
+  { label: "how do I install Rust?", icon: "💿" },
+  { label: "install Rust on Windows", icon: "🪟" },
+  { label: "install Rust on macOS", icon: "🍎" },
+  { label: "install Rust on Linux", icon: "🐧" },
 ];
 
 async function streamChat({
